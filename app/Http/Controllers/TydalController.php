@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Tydal;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class TydalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         //
+        return view('tydal.index');
     }
 
     /**
