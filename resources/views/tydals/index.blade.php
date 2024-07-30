@@ -21,7 +21,7 @@
                             <div>
                                 <span class="text-gray-800">{{ $tyd->user->name }}</span>
                                 <small class="ml-2 text-sm text-gray-600">{{ $tyd->created_at->diffForHumans() }}</small>
-                                {{-- <small class="ml-2 text-sm text-gray-600">{{ $tyd->created_at->format('j M Y, g:i a') }}</small> --}}
+                                
                             </div>
                         </div>
                         <p class="mt-4 text-lg text-gray-900">{{ $tyd->message }}</p>
