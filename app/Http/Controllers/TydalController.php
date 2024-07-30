@@ -19,7 +19,7 @@ class TydalController extends Controller
     {
         //
         return view('tydals.index', [
-            'tydal' => Tydal::with('user')->latest()->paginate()
+            'tydal' => Tydal::with('user')->latest()->paginate(3)
         ]);
     }
 

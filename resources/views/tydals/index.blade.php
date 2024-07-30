@@ -11,7 +11,7 @@
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Post') }}</x-primary-button>
         </form>
-        <div class="mt-6 bg-white dark:bg-gray-800 shadow-sm rounded-lg divide-y divide-gray-200 dark:divide-gray-600 custom-divider">
+        <div class="mt-6 mb-4 bg-white dark:bg-gray-800 shadow-sm rounded-lg divide-y divide-gray-200 dark:divide-gray-600 custom-divider">
             @forelse ($tydal as $tyd)
                 <div class="p-6 flex space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 -scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -55,6 +55,7 @@
             </div>
             @endforelse
         </div>
+        {{$tydal->links()}}
 
 
 </x-app-layout>
