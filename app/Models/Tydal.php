@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tydal extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['message'];
 }
