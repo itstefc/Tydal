@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTydalRequest;
 use App\Models\Tydal;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -33,12 +34,12 @@ class TydalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreTydalRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'message' => 'required|string|max:255'
-        ]);
-
+        // $validated = $request->validate([
+        //     'message' => 'required|string|max:255'
+        // ]);
+        $validated = $request->validate();
         $request->user()->tydal()->create($validated);
         return redirect(route('tydal.index'));
     }
@@ -67,14 +68,16 @@ class TydalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tydal $tydal): RedirectResponse
+    public function update(StoreTydalRequest $request, Tydal $tydal): RedirectResponse
     {
         //
         Gate::authorize('update', $tydal);
         //Validation
-        $validated = $request->validate([
-            'message' => 'required|string|max:255'
-        ]);
+        // $validated = $request->validate([
+        //     'message' => 'required|string|max:255'
+        // ]);
+
+        $validated = $request->validate();
 
         // update post
         $tydal->update($validated);
