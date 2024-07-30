@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tydal;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class TydalController extends Controller
 {
@@ -28,9 +30,14 @@ class TydalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:255'
+        ]);
+
+        $request->user()->tydal()->create($validated);
+        return redirect(route('tydal.index'));
     }
 
     /**

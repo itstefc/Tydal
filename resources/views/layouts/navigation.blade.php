@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('tydals.index')" :active="request()->routeIs('tydals.index')">
+                    <x-nav-link :href="route('tydal.index')" :active="request()->routeIs('tydal.index')">
                         {{ __('Tydals') }}
                     </x-nav-link>
                 </div>
@@ -75,7 +75,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('tydals.index')" :active="request()->routeIs('tydals.index')">
+            <x-responsive-nav-link :href="route('tydal.index')" :active="request()->routeIs('tydal.index')">
                 {{ __('Tydals') }}
             </x-responsive-nav-link>
         </div>
