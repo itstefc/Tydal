@@ -41,7 +41,7 @@ class TydalController extends Controller
         // ]);
         $validated = $request->validated();
         $request->user()->tydal()->create($validated);
-        return redirect(route('tydal.index'));
+        return redirect(route('tydal.index'))->with('success', 'Tydal created');
     }
 
     /**
@@ -81,7 +81,7 @@ class TydalController extends Controller
 
         // update post
         $tydal->update($validated);
-        return redirect(route('tydal.index'));
+        return redirect(route('tydal.index'))->with('success', 'Tydal updated');
     }
 
     /**
@@ -90,5 +90,8 @@ class TydalController extends Controller
     public function destroy(Tydal $tydal)
     {
         //
+        Gate::authorize('delete', $tydal);
+        $tydal->delete();
+        return redirect(route('tydal.index'))->with('success', 'Tydal deleted');
     }
 }

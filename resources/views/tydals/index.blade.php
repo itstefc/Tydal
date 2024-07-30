@@ -40,6 +40,14 @@
                                     <x-dropdown-link :href="route('tydal.edit', $tyd)">
                                         {{ __('Edit') }}
                                     </x-dropdown-link>
+
+                                    <form method="POST" action="{{ route('tydal.destroy', $tyd) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <x-dropdown-link :href="route('tydal.destroy', $tyd)" onclick="event.preventDefault(); this.closest('form').submit();">
+                                            {{ __('Delete') }}
+                                        </x-dropdown-link>
+                                    </form>
                                 </x-slot>
                             </x-dropdown>
                         @endif

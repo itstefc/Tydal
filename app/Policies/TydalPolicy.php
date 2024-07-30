@@ -48,6 +48,7 @@ class TydalPolicy
     public function delete(User $user, Tydal $tydal): bool
     {
         //
+        return $this->update($user, $tydal);
     }
 
     /**
