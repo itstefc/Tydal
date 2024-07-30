@@ -6,6 +6,7 @@ use App\Models\Tydal;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
 class TydalController extends Controller
@@ -57,7 +58,7 @@ class TydalController extends Controller
     {
         //
         // dd($tydal);
-
+        Gate::authorize('update', $tydal);
         return view('tydals.edit', [
             'tydal' => $tydal
         ]);
@@ -66,9 +67,18 @@ class TydalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tydal $tydal)
+    public function update(Request $request, Tydal $tydal): RedirectResponse
     {
         //
+        Gate::authorize('update', $tydal);
+        //Validation
+        $validated = $request->validate([
+            'message' => 'required|string|max:255'
+        ]);
+
+        // update post
+        $tydal->update($validated);
+        return redirect(route('tydal.index'));
     }
 
     /**
