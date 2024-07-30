@@ -56,6 +56,11 @@ class TydalController extends Controller
     public function edit(Tydal $tydal)
     {
         //
+        // dd($tydal);
+
+        return view('tydals.edit', [
+            'tydal' => $tydal
+        ]);
     }
 
     /**
