@@ -14,7 +14,7 @@ class TydalController extends Controller
     public function index(): View
     {
         //
-        return view('tydal.index');
+        return view('tydals.index');
     }
 
     /**
