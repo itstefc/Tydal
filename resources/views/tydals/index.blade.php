@@ -24,7 +24,7 @@
                                 <small class="ml-2 text-sm text-gray-600 dark:text-gray-100">{{ $tyd->created_at->diffForHumans() }}</small>
                                 
                                 @unless ($tyd->created_at->eq($tyd->updated_at))
-                                <small class="text-sm text-gray-600"> &middot; {{ __('edited') }}</small>
+                                <small class="text-sm text-gray-600 dark:text-gray-100"> &middot; {{ __('edited') }}</small>
                             @endunless
                         </div>
                         @if ($tyd->user->is(auth()->user()))

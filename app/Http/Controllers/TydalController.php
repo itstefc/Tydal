@@ -19,7 +19,7 @@ class TydalController extends Controller
     {
         //
         return view('tydals.index', [
-            'tydal' => Tydal::with('user')->latest()->get()
+            'tydal' => Tydal::with('user')->latest()->paginate()
         ]);
     }
 
@@ -39,7 +39,7 @@ class TydalController extends Controller
         // $validated = $request->validate([
         //     'message' => 'required|string|max:255'
         // ]);
-        $validated = $request->validate();
+        $validated = $request->validated();
         $request->user()->tydal()->create($validated);
         return redirect(route('tydal.index'));
     }
@@ -77,7 +77,7 @@ class TydalController extends Controller
         //     'message' => 'required|string|max:255'
         // ]);
 
-        $validated = $request->validate();
+        $validated = $request->validated();
 
         // update post
         $tydal->update($validated);
