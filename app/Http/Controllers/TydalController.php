@@ -16,7 +16,9 @@ class TydalController extends Controller
     public function index(): View
     {
         //
-        return view('tydals.index');
+        return view('tydals.index', [
+            'tydal' => Tydal::with('user')->latest()->get()
+        ]);
     }
 
     /**
