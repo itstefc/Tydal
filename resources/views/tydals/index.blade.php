@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="resources/css/app.css">
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+        @session('success')
+        {{-- <div x-data =></div> --}}
+
+
+        @endsession
         <form method="POST" action="{{ route('tydal.store') }}">
             @csrf
             <textarea
